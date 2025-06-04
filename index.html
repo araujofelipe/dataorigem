@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataOrigem - Transforme dados em lucro</title>
+  <meta name="description" content="Transforme os dados que você ignora no crescimento que você quer. Análises certeiras e decisões mais inteligentes.">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #0b0c10;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #ff416c, #ff4b2b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      animation: slideIn 1.5s ease-out forwards;
+    }
+
+    .cta {
+      padding: 1rem 2rem;
+      background: #ff4b2b;
+      border: none;
+      border-radius: 30px;
+      color: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: background 0.3s ease;
+      animation: pulse 2s infinite;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta:hover {
+      background: #ff416c;
+    }
+
+    .stats {
+      margin-top: 2rem;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      max-width: 200px;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    .background-graphic {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.05;
+      z-index: -1;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes slideIn {
+      from {opacity: 0; transform: translateX(-30px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1);}
+      50% { transform: scale(1.05);}
+      100% { transform: scale(1);}
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1rem; }
+      .stat { max-width: 150px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Gráfico de fundo com linhas e pontos -->
+  <svg class="background-graphic" viewBox="0 0 800 600" preserveAspectRatio="none">
+    <polyline points="0,500 100,450 200,480 300,400 400,420 500,350 600,370 700,300 800,320" stroke="white" stroke-width="2" fill="none" />
+    <circle cx="100" cy="450" r="4" fill="white"/>
+    <circle cx="200" cy="480" r="4" fill="white"/>
+    <circle cx="300" cy="400" r="4" fill="white"/>
+    <circle cx="400" cy="420" r="4" fill="white"/>
+    <circle cx="500" cy="350" r="4" fill="white"/>
+    <circle cx="600" cy="370" r="4" fill="white"/>
+    <circle cx="700" cy="300" r="4" fill="white"/>
+  </svg>
+
+  <h1>Você está desperdiçando os dados gerados por sua empresa?</h1>
+  
+  <h2>
+    Enquanto você espera, seus concorrentes avançam.  
+    Transforme os dados que você ignora em decisões que geram lucro — agora.
+  </h2>
+
+  <a class="cta" href="https://wa.me/5500000000000" target="_blank">Quero minha Análise!</a>
+
+  <div class="stats">
+    <div class="stat">📊 75% das empresas orientadas por dados crescem mais rápido</div>
+    <div class="stat">🚀 Decisões baseadas em dados aumentam a eficiência em até 30%</div>
+    <div class="stat">⚡ Negócios orientados por dados são 5x mais competitivos</div>
+  </div>
+
+  <footer>
+    &copy; 2025 DataOrigem. Insights que transformam. | contato@dataorigem.com
+  </footer>
+
+</body>
+</html>
