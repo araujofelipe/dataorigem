@@ -266,6 +266,24 @@
   .close-btn:hover {
     color: #fff;
   }
+
+  .form-message {
+  background: rgba(0, 255, 140, 0.1);
+  border: 1px solid #00f260;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+  color: #00f260;
+  font-size: 1rem;
+  border-radius: 8px;
+  animation: fadeInOut 5s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}
     </style>
 </head>
 
@@ -286,6 +304,8 @@
         </h2>
 
 <button id="openModalBtn" class="cta">Solicite uma Análise Gratuita</button>
+<div id="form-message" class="form-message" style="display: none;"></div>
+
 
         <div class="trust-badges">
             <div class="trust-badge">✔️ Análise gratuita e sem compromisso</div>
@@ -368,6 +388,7 @@
   openBtn.onclick = () => modal.style.display = 'flex';
   function closeModal() {
     modal.style.display = 'none';
+    document.querySelector("#formulario").reset(); // Limpa o formulário ao fechar
   }
 
   // Fechar ao clicar fora do modal
@@ -378,11 +399,12 @@
   }
 </script>
 <script>
-  async function enviarParaPlanilha(obj, nome, email, telefone) {
-    console.log(obj)
+  async function enviarParaPlanilha(nome, email, telefone) {
     const endpoint = "https://script.google.com/macros/s/AKfycbxjeIEXQVw0ZafG3ZtYBO5xWl_959-0fbHRgvpc7w_PY8KNm1aak_tfQn783H0eTwyv/exec";
 
     const resposta = await fetch(endpoint, {
+              redirect: "follow",
+
       method: "POST",
       body: JSON.stringify({
         nome,
@@ -390,23 +412,46 @@
         telefone
       }),
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "text/plain;charset=UTF-8"
       }
-    });
+    }).then(response => response.json())
+    .then(data => {
+      closeModal();
+      showMessage("Enviado com sucesso!");
+      document.querySelector("button[type='submit']").disabled = false; // Reabilita o botão de envio
+      document.querySelector("button[type='submit']").textContent = "Enviar"; // Restaura o texto do botão
+    })
+    .catch(error => {
+      showMessage("Erro ao enviar. Tente novamente.", true);
+    });;
 
-    const resultado = await resposta.json();
+    const resultado = await resposta;
     console.log("Resposta:", resultado);
   }
 
   // Exemplo de uso ao submeter o formulário:
   document.querySelector("#formulario").addEventListener("submit", function (e) {
     e.preventDefault();
+    document.querySelector("button[type='submit']").disabled = true; // Desabilita o botão de envio
+    document.querySelector("button[type='submit']").textContent = "Enviando..."; // Altera o texto do botão
+
     const nome = document.querySelector("#nome").value;
     const email = document.querySelector("#email").value;
     const telefone = document.querySelector("#telefone").value;
     enviarParaPlanilha(nome, email, telefone);
-    alert("Enviado com sucesso!");
   });
+
+  function showMessage(msg, isError = false) {
+  const el = document.getElementById("form-message");
+  el.style.display = "block";
+  el.textContent = msg;
+  el.style.color = isError ? "#ff5c5c" : "#00f260";
+  el.style.borderColor = isError ? "#ff5c5c" : "#00f260";
+
+  setTimeout(() => {
+    el.style.display = "none";
+  }, 5000);
+}
 </script>
 
 </body>
