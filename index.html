@@ -1,164 +1,414 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DataOrigem - Insights que Transformam</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: #0b0c10;
-      color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 2rem;
-    }
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-      background: linear-gradient(90deg, #00f260, #0575e6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: fadeIn 1s ease-out forwards;
-    }
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      max-width: 700px;
-      animation: slideIn 1.5s ease-out forwards;
-    }
-    .cta {
-      padding: 1rem 2rem;
-      background: #0575e6;
-      border: none;
-      border-radius: 30px;
-      color: #fff;
-      font-size: 1.2rem;
-      cursor: pointer;
-      text-transform: uppercase;
-      transition: background 0.3s ease;
-      animation: pulse 2s infinite;
-      margin-bottom: 2rem;
-    }
-    .cta:hover {
-      background: #00f260;
-    }
-    .stats, .cases {
-      margin-top: 2rem;
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .stat, .case {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 1rem 2rem;
-      border-radius: 12px;
-      font-size: 1rem;
-      max-width: 250px;
-      text-align: left;
-    }
-    .ref, .btn-link {
-      display: block;
-      margin-top: 0.5rem;
-      font-size: 0.8rem;
-      color: #00f260;
-      text-decoration: underline;
-    }
-    footer {
-      margin-top: 3rem;
-      font-size: 0.8rem;
-      color: #888;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(-20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-    @keyframes slideIn {
-      from {opacity: 0; transform: translateX(-30px);}
-      to {opacity: 1; transform: translateX(0);}
-    }
-    @keyframes pulse {
-      0% { transform: scale(1);}
-      50% { transform: scale(1.05);}
-      100% { transform: scale(1);}
-    }
-  </style>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-K39GH8JK');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataOrigem - Insights que Transformam</title>
+    <meta name="description"
+        content="A DataOrigem transforma dados ignorados em vantagem competitiva. Descubra como crescer com decisões baseadas em dados.">
+    <meta name="keywords"
+        content="data analytics, BI, business intelligence, análise de dados, consultoria de dados, inteligência de negócios">
+    <meta property="og:title" content="DataOrigem - Insights que Transformam">
+    <meta property="og:description"
+        content="Descubra como transformar seus dados em crescimento real. Consultoria de dados para empresas que querem ir além.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dataorigem.digital">
+    <meta property="og:site_name" content="DataOrigem">
+    <meta property="og:locale" content="pt_BR">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: #0b0c10;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #00f260, #0575e6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            animation: slideIn 1.5s ease-out forwards;
+        }
+
+        .cta {
+            padding: 1rem 2rem;
+            background: #0575e6;
+            border: none;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background 0.3s ease;
+            animation: pulse 2s infinite;
+            margin-bottom: 2rem;
+        }
+
+        .cta:hover {
+            background: #00f260;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #b3e5fc;
+        }
+
+        .stats,
+        .cases {
+            margin-top: 2rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .stat,
+        .case {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            max-width: 280px;
+            text-align: left;
+            color: #e0f7fa;
+        }
+
+        .ref a,
+        .btn-link {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: #b3e5fc;
+            text-decoration: none;
+        }
+
+        .ref a:hover,
+        .btn-link:hover {
+            text-decoration: underline;
+            font-size: 0.81rem;
+        }
+
+        footer {
+            margin: 3rem auto 1rem;
+            font-size: 0.8rem;
+            color: #888;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .background-graph {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/graph-paper.png');
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .modal {
+    background: #1a1c20;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+  }
+
+  .modal h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    background: linear-gradient(90deg, #00f260, #0575e6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+  }
+
+  .modal input,
+  .modal button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+
+  .modal input {
+    background: #2a2d32;
+    color: #fff;
+  }
+
+  .modal button {
+    background: #0575e6;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .modal button:hover {
+    background: #00f260;
+    color: #000;
+  }
+
+  .close-btn {
+    text-align: right;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #ccc;
+  }
+
+  .close-btn:hover {
+    color: #fff;
+  }
+    </style>
 </head>
+
 <body>
+    <div class="background-graph"></div>
 
-  <h1>Sua empresa está usando dados… ou sendo usada?</h1>
-  
-  <h2>
-    Transforme dados ignorados no seu maior trunfo estratégico.  
-    Enquanto você hesita, seus concorrentes aceleram.
-  </h2>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K39GH8JK" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-  <button class="cta">Solicite uma Análise Gratuita</button>
+    <main>
+        <h1>Empresas que ignoram seus dados perdem dinheiro todos os dias.</h1>
 
-  <section class="stats">
-    <div class="stat">
-      📊 75% das empresas orientadas por dados crescem mais rápido.  
-      <span class="ref">
-        <a href="https://www.mckinsey.com/~/media/mckinsey/business%20functions/mckinsey%20analytics/our%20insights/the%20age%20of%20analytics%20competing%20in%20a%20data%20driven%20world/mgi-the-age-of-analytics-full-report.pdf" target="_blank">Fonte: McKinsey</a>
-      </span>
-    </div>
-    <div class="stat">
-      🚀 Decisões baseadas em dados aumentam a eficiência em até 30%.  
-      <span class="ref">
-        <a href="https://hbr.org/resources/pdfs/comm/sas/19552_HBR_SAS_Report_Web.pdf" target="_blank">Fonte: Harvard Business Review</a>
-      </span>
-    </div>
-    <div class="stat">
-      ⚡ Negócios orientados por dados são 5x mais competitivos.  
-      <span class="ref">
-        <a href="https://barc-research.com/research/data-culture-survey/" target="_blank">Fonte: BARC Survey</a>
-      </span>
-    </div>
-  </section>
+        <h2>
+            A DataOrigem ajuda você a tomar decisões com base no que realmente importa. Chega de achismo. Com dados, sua
+            empresa vai mais longe.
+        </h2>
 
-  <section class="cases">
-    <div class="case">
-      <h3>🚀 Netflix: A força dos algoritmos</h3>
-      <p>
-        A Netflix investe mais de <strong>US$ 1 bilhão por ano</strong> em sistemas de recomendação, gerando bilhões de receita e reduzindo drasticamente o churn.
-      </p>
-      <a class="btn-link" href="https://hbr.org/2021/09/netflix-and-the-power-of-data-driven-culture" target="_blank">Veja o Estudo</a>
-    </div>
+<button id="openModalBtn" class="cta">Solicite uma Análise Gratuita</button>
 
-    <div class="case">
-      <h3>🛒 Amazon: A gigante dos dados</h3>
-      <p>
-        A Amazon ajusta automaticamente os preços de milhões de produtos várias vezes ao dia, com base em algoritmos que consideram demanda e comportamento do consumidor.
-      </p>
-      <a class="btn-link" href="https://hbr.org/2019/05/amazons-competitive-advantage-isnt-just-from-scale" target="_blank">Veja o Estudo</a>
-    </div>
+        <div class="trust-badges">
+            <div class="trust-badge">✔️ Análise gratuita e sem compromisso</div>
+            <div class="trust-badge">🔐 Seus dados são 100% confidenciais</div>
+            <div class="trust-badge">💡 Atendimento humano e consultivo</div>
+        </div>
 
-    <div class="case">
-      <h3>🏬 Walmart: Eficiência com Analytics</h3>
-      <p>
-        O Walmart usa Data Analytics para prever demandas, evitar rupturas de estoque e reduzir desperdícios.
-      </p>
-      <a class="btn-link" href="https://hbr.org/2018/05/how-walmart-and-p-g-built-a-data-sharing-partnership" target="_blank">Veja o Estudo</a>
-    </div>
+        <section class="stats">
+            <div class="stat">
+                📊 75% das empresas orientadas por dados crescem mais rápido.
+                <span class="ref">
+                    <a href="https://www.mckinsey.com/~/media/mckinsey/industries/public%20and%20social%20sector/our%20insights/the%20age%20of%20analytics%20competing%20in%20a%20data%20driven%20world/mgi-the-age-of-analytics-full-report.pdf"
+                        target="_blank">Fonte: McKinsey GMI</a>
+                </span>
+            </div>
+            <div class="stat">
+                🚀 Decisões baseadas em dados aumentam a eficiência em até 30%.
+                <span class="ref">
+                    <a href="https://www.harvardbusiness.org/wp-content/uploads/2023/02/Infographic_Decision-Making_Feb2023.pdf"
+                        target="_blank">Fonte: Harvard Business Publishing</a>
+                </span>
+            </div>
+            <div class="stat">
+                ⚡ Negócios orientados por dados são até 5x mais competitivos.
+                <span class="ref">
+                    <a href="https://barc.com/wp-content/uploads/2022/11/Data-Culture-23_Infographic-1.pdf"
+                        target="_blank">Fonte: BARC Data Culture Survey ’23</a>
+                </span>
+            </div>
+        </section>
 
-    <div class="case">
-      <h3>🏡 Airbnb: Preços e segurança com dados</h3>
-      <p>
-        A Airbnb utiliza Machine Learning para definir preços ideais e detectar fraudes automaticamente.
-      </p>
-      <a class="btn-link" href="https://arxiv.org/abs/1902.07276" target="_blank">Veja o Estudo</a>
-    </div>
-  </section>
+        <section class="cases">
+            <div class="case">
+                <h3>🚀 Netflix: A força dos algoritmos</h3>
+                <p>Netflix usa dados dos espectadores para criar séries como *House of Cards*, calibrando conteúdo por
+                    comportamento real.</p>
+                <a class="btn-link"
+                    href="https://www.theguardian.com/media/2014/feb/23/netflix-viewer-data-house-of-cards"
+                    target="_blank">Veja o Estudo</a>
+            </div>
+            <div class="case">
+                <h3>🛒 Amazon: A gigante dos dados</h3>
+                <p>O “efeito Amazon” pressiona preços e logística global, alavancando análises para manter vantagem
+                    competitiva.</p>
+                <a class="btn-link"
+                    href="https://www.library.hbs.edu/working-knowledge/the-amazon-effect-is-changing-online-price-competition-and-the-fed-needs-to-pay-attention"
+                    target="_blank">Veja o Estudo</a>
+            </div>
+            <div class="case">
+                <h3>🏬 Walmart + P&G: Parceria que transformou estoques</h3>
+                <p>Walmart e P&G compartilham dados em tempo real via Retail Link, reduzindo rupturas e otimizando o
+                    estoque.</p>
+                <a class="btn-link"
+                    href="https://www.industryweek.com/supply-chain/supplier-relationships/article/21960963/how-sharing-data-drives-supply-chain-innovation"
+                    target="_blank">Veja o Estudo</a>
+            </div>
+        </section>
+        <!-- Modal -->
+<div id="formModal" class="modal-overlay">
+  <div class="modal">
+    <div class="close-btn" onclick="closeModal()">✖</div>
+    <h3>Preencha para receber sua análise gratuita</h3>
+    <form id="formulario">
+      <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+      <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+      <input type="tel" name="telefone" id="telefone" placeholder="Seu telefone" required>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
+    </main>
 
-  <footer>
-    &copy; 2025 DataOrigem. Insights que transformam.
-  </footer>
+    <footer>
+        &copy; 2025 DataOrigem. Insights que transformam.
+    </footer>
+    <script>
+  const modal = document.getElementById('formModal');
+  const openBtn = document.getElementById('openModalBtn');
+
+  openBtn.onclick = () => modal.style.display = 'flex';
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+
+  // Fechar ao clicar fora do modal
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      closeModal();
+    }
+  }
+</script>
+<script>
+  async function enviarParaPlanilha(obj, nome, email, telefone) {
+    console.log(obj)
+    const endpoint = "https://script.google.com/macros/s/AKfycbxjeIEXQVw0ZafG3ZtYBO5xWl_959-0fbHRgvpc7w_PY8KNm1aak_tfQn783H0eTwyv/exec";
+
+    const resposta = await fetch(endpoint, {
+      method: "POST",
+      body: JSON.stringify({
+        nome,
+        email,
+        telefone
+      }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+
+    const resultado = await resposta.json();
+    console.log("Resposta:", resultado);
+  }
+
+  // Exemplo de uso ao submeter o formulário:
+  document.querySelector("#formulario").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const nome = document.querySelector("#nome").value;
+    const email = document.querySelector("#email").value;
+    const telefone = document.querySelector("#telefone").value;
+    enviarParaPlanilha(nome, email, telefone);
+    alert("Enviado com sucesso!");
+  });
+</script>
 
 </body>
+
 </html>
